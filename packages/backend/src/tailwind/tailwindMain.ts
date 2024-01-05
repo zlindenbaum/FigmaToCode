@@ -63,8 +63,9 @@ const tailwindWidgetGenerator = (
       case "SECTION":
         comp += tailwindSection(node, isJsx);
         break;
-      // case "VECTOR":
-      //   comp += htmlAsset(node, isJsx);
+      case "VECTOR":
+        comp += tailwindVector(node, isJsx);
+        break;
     }
   });
 
@@ -82,8 +83,6 @@ const tailwindGroup = (node: GroupNode, isJsx: boolean = false): string => {
 
   const vectorIfExists = tailwindVector(
     node,
-    localTailwindSettings.layerName,
-    "",
     isJsx
   );
   if (vectorIfExists) return vectorIfExists;

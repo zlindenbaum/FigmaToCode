@@ -29,6 +29,7 @@ export const tailwindSizePartial = (
   }
 
   let h = "";
+
   if (typeof size.height === "number") {
     h = `h-${pxToLayoutSize(size.height)}`;
   } else if (size.height === "fill") {
@@ -42,6 +43,11 @@ export const tailwindSizePartial = (
     } else {
       h = `self-stretch`;
     }
+  }
+
+  if (node.parent == null) {
+    h = "h-screen"
+    w = "w-full"
   }
 
   return { width: w, height: h };
